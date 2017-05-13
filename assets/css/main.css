@@ -1,0 +1,130 @@
+@import url(template-main.css);
+
+#calculator {
+  border: none;
+  font-size: 4em;
+  line-height: 0;
+  height: 1em;
+  text-align: right;
+  min-height: 60.5px;
+  margin-bottom: -20px;
+
+}
+
+#pastOperations {
+  text-align: right;
+  min-height: 49px;
+  padding-right: 15px;
+  margin-bottom: -20px;
+  font-size: 2em;
+}
+
+ul.actions {
+  text-align: center;
+}
+
+ul.icons li {
+  padding: 1rem 1rem 0 0 !important;
+}
+
+@media screen and (max-width: 736px) {
+  .panel.banner .content {
+    padding: 2.8875rem 0.75rem 1.3875rem 0.75rem;
+    -moz-flex-basis: 60%;
+    -webkit-flex-basis: 60%;
+  }
+}
+
+[class^='calc-']:before, [class*=' calc-']:before {
+  font-family: "Source Sans Pro", Helvetica, sans-serif !important;
+  font-weight: 100;
+}
+
+.calc-C:before {
+    content: "C";
+}
+
+
+.calc-1:before {
+    content: "1";
+}
+
+.calc-2:before {
+    content: "2";
+}
+
+.calc-3:before {
+    content: "3";
+}
+
+.calc-4:before {
+    content: "4";
+}
+
+.calc-5:before {
+    content: "5";
+}
+
+.calc-6:before {
+    content: "6";
+}
+
+.calc-7:before {
+    content: "7";
+}
+
+.calc-8:before {
+    content: "8";
+}
+
+.calc-9:before {
+    content: "9";
+}
+
+.calc-0:before {
+    content: "0";
+}
+
+.calc-\=:before {
+    content: "=";
+}
+
+.calc-\+:before {
+    content: "+";
+    font-size: 2.5em !important;
+}
+
+.calc-\-:before {
+    content: "−";
+    font-size: 3em !important;
+}
+
+.calc-÷:before {
+    content: "÷";
+    font-size: 3em !important;
+}
+
+.calc-×:before {
+    content: "×";
+    font-size: 3em !important;
+}
+
+.calc-\(:before {
+    content: "(";
+}
+
+.calc-\):before {
+    content: ")";
+}
+
+.calc-\.:before {
+    content: ".";
+}
+
+.nopad {
+  padding: 0 !important;
+}
+
+.text-center {
+  text-align: center;
+}
