@@ -24,6 +24,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   $(".operation").click(function () {
     operation = $(this).text();
 
+    var tt = $calculatorInput.val();
+
     if (operation === "DEL") {
       text = text.slice(0, -1);
       $calculatorInput.val(text);
@@ -42,6 +44,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       return;
     }
     else {
+      if (/[\+\×\-\÷]/.test(text.slice(-1))){
+        text = text.slice(0, -1);
+      }
+
       text += operation;
     }
 
@@ -53,18 +59,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     var arrCalculate = strCalculator
                           .replace(/-(?!\d)/g, "")
                           .replace(/(\d(?=-\d))/g, "$1\+")
-                          .split(/[+\×/\÷](?!(\())/)
+                          .split(/[\+\×\÷](?!(\())/)
                           .filter(str => (str && str != '')),
         strOperations = strCalculator
                           .replace(/-(?!\d)/g, "")
                           .replace(/(\d(?=-\d))/g, "$1\+")
-                          .replace(/([^+\×/\÷](?!(\()))/g, ''),
+                          .replace(/([^\+\×\÷](?!(\()))/g, ''),
         calculatorIndex = 0,
         localValOne = 0,
         localValTwo = 0,
         localTotal = 0,
-        localOperation = "",
-        localPrecision = 0;
+        localOperation = "";
+        // localPrecision = 0;
 
     if (arrCalculate.length == 1) return arrCalculate[0];
 
@@ -74,7 +80,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         localValOne = Number(calculatorIndex === 0 ? arrCalculate[calculatorIndex] : localTotal);
         localValTwo = Number(arrCalculate[calculatorIndex + 1]);
         localOperation = strOperations[calculatorIndex];
-        localPrecision = getPrecision(localValOne) + getPrecision(localValTwo) + 1;
+        // localPrecision = getPrecision(localValOne) + getPrecision(localValTwo) + 1;
 
         switch (localOperation) {
           case "+":  localTotal = localValOne + localValTwo; break;
@@ -85,7 +91,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       }
     }
 
-    return localTotal !== 0 ? localTotal : 0;
+    return localTotal !== 0 ? localTotal.toString() : "0";
   }
 
   //based in: http://stackoverflow.com/a/27865285
